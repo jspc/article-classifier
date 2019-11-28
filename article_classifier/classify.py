@@ -13,6 +13,7 @@ class Classify():
 
     def entities(self):
         entities = []
+        unknown = []
 
         for i in self.doc.ents:
             if i.label_ in ['ORG']:
@@ -22,8 +23,10 @@ class Classify():
                 o = self.__org(i.text)
                 if o not in ["", None]:
                     entities.append(o)
+                else:
+                    unknown.append(o)
 
-        return pd.DataFrame({'entities': entities})
+        return pd.DataFrame({'entities': entities}), unknown
 
 
     def normalise(self):

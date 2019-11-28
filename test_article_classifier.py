@@ -21,7 +21,8 @@ class ClassifyTests(unittest.TestCase):
         self.doc = Classify(self.article, self.orgs_dict)
 
         expect = ["CnA"]
-        got = self.doc.entities()['entities'].values.tolist()
+        entities, unknown = self.doc.entities()
+        got = entities['entities'].values.tolist()
 
         self.assertCountEqual(expect, got)
 
