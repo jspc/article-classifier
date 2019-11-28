@@ -8,7 +8,7 @@ with open('LICENSE') as f:
 
 setup(
     name='article-classifier',
-    version='0.1.0',
+    version='0.1.1',
     description='Classify artivles',
     long_description=readme,
     author='jspc',

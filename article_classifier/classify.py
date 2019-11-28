@@ -41,7 +41,7 @@ class Classify():
                 if o not in ["", None]:
                     entities.append(o)
                 else:
-                    unknown.append(o)
+                    unknown.append(i.text)
 
         return pd.DataFrame({'entities': entities}), unknown
 
