@@ -10,11 +10,12 @@ class Classify():
         self.doc = self.nlp(article_body)
         self.__orgs = orgs_dict
 
+        print(self.doc)
 
     def entities(self):
         entities = []
 
-        for i in doc.ents:
+        for i in self.doc.ents:
             if i.label_ in ['ORG']:
                 entities.append(i.text)
 
@@ -23,7 +24,7 @@ class Classify():
                 if o not in ["", None]:
                     entities.append(o)
 
-        return pd.DataFrame(entities)
+        return pd.DataFrame({'entities': entities})
 
 
     def normalise(self):
