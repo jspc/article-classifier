@@ -10,7 +10,6 @@ class Classify():
         self.doc = self.nlp(article_body)
         self.__orgs = orgs_dict
 
-        print(self.doc)
 
     def entities(self):
         entities = []
@@ -29,10 +28,10 @@ class Classify():
 
     def normalise(self):
         non_entities = self.__non_entities(self.doc)
-        lematised = self.__lematise(non_entities)
-        non_stops = self.__de_stopword(lematised)
+        non_stops = self.__de_stopword(non_entities)
+        lematised = self.__lematise(non_stops)
 
-        return non_stops
+        return ' '.join(lematised)
 
 
     def __org(self, name):
@@ -49,9 +48,9 @@ class Classify():
         return out
 
 
+    def __de_stopword(self, doc):
+        return [elem for elem in doc if not elem.is_stop]
+
+
     def __lematise(self, doc):
         return [elem.lemma_ for elem in doc]
-
-
-    def __de_stopword(self, doc):
-        return [elem.text for elem in doc if not elem.is_stop]

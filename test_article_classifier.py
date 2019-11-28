@@ -25,6 +25,14 @@ class ClassifyTests(unittest.TestCase):
 
         self.assertCountEqual(expect, got)
 
+    def test_normalise(self):
+        doc = Classify(self.article)
+
+        expect = 'everybody world declare etc .'
+        got = doc.normalise()
+
+        self.assertEqual(expect, got)
+
 
 if __name__ == '__main__':
     unittest.main()
