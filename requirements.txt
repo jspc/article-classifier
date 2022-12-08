@@ -1,7 +1,7 @@
 article-classifier==0.1.0
 blis==0.4.1
 catalogue==0.0.8
-certifi==2019.9.11
+certifi==2022.12.7
 chardet==3.0.4
 cymem==2.0.3
 en-core-web-sm==2.2.5
